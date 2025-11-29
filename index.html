@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ycmister 的个人作品集</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* 全局样式和背景 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6; /* 淡灰色背景 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* 个人名片容器 */
+        .profile-card {
+            background-color: #ffffff; /* 白色卡片背景 */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px; /* 加宽以容纳项目卡片 */
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* 占位头像样式 (如果无图) */
+        .avatar {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 15px;
+            background-color: #e8e8e8; /* 灰色占位背景 */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 14px;
+        }
+        .avatar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #007BFF; /* 使用蓝色强调，或改为你喜欢的颜色 */
+            margin-bottom: 15px;
+            /*display: none;  默认隐藏，有图片时取消此行 */
+        }
+
+        /* 标题和口号 */
+        h1 {
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        /* 分隔线 */
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #eee;
+            margin: 30px 0;
+        }
+
+        /* 内容区块标题 */
+        h2 {
+            color: #007BFF; /* 蓝色标题 */
+            border-bottom: 2px solid #e0f2ff;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        /* 段落通用样式 */
+        .bio p, .project-description {
+            text-align: left;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* ----- 项目卡片区域样式 ----- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* 响应式布局 */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            color: #007BFF;
+            margin-top: 0;
+        }
+
+        .project-card a.link-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .project-card a.link-btn:hover {
+            background-color: #0056b3;
+        }
+        /* ----- 社交链接样式 (与之前相同) ----- */
+        .social-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-links li {
+            margin: 10px 0;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 15px;
+            border: 1px solid #007BFF;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #007BFF;
+            color: #ffffff;
+        }
+
+        .social-links i {
+            margin-right: 8px;
+        }
+
+        /* 底部版权 */
+        footer {
+            margin-top: auto;
+            color: #999;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="profile-card">
+        <div class="avatar">
+    <img src="images/avatar.jpg" alt="My Avatar">
+</div>
+        
+        
+        
+        <h1>👋 你好，我是 Ycmister</h1>
+        <p class="tagline">一位专注于 **Web 游戏和工具开发** 的前端工程师</p>
+        
+        <hr>
+
+        <section class="bio">
+            <h2>✨ 简介</h2>
+            <p>
+                我对使用 HTML、CSS 和 **JavaScript** 构建互动和功能性应用充满热情。我特别喜欢挑战复杂的逻辑，
+                目前的项目重点是创建基于 Web 的游戏和实用工具。
+            </p>
+        </section>
+        
+        <section class="projects">
+            <h2>💻 我的主要项目</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>贪吃蛇 (SnakeDrive)</h3>
+                    <p class="project-description">基于经典街机游戏，实现复杂的游戏逻辑、分数跟踪和响应式设计。</p>
+                    <a href="https://ycmister.github.io/SnakeDrive/" target="_blank" class="link-btn">
+                        <i class="fas fa-gamepad"></i> 立即体验
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>星球大战 (StarWarsGame)</h3>
+                    <p class="project-description">一个使用纯 JavaScript 制作的 Web 射击游戏，展示了 Canvas 动画和碰撞检测能力。</p>
+                    <a href="https://ycmister.github.io/StarWarsGame/" target="_blank" class="link-btn">
+                        <i class="fas fa-rocket"></i> 立即体验
+                    </a>
+                </div>
+                
+                <div class="project-card">
+                    <h3>智绘计算器 (Plot Calculator)</h3>
+                    <p class="project-description">一个不仅能进行常规计算，还能绘制函数图形的实用工具。</p>
+                    <a href="https://ycmister.github.io/plotcalculator2/" target="_blank" class="link-btn">
+                        <i class="fas fa-calculator"></i> 立即体验
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>中国象棋 (Chinese Chess)</h3>
+                    <p class="project-description">实现了完整的象棋规则和用户交互，是逻辑编程的优秀实践。</p>
+                    <a href="https://ycmister.github.io/Chinese-chess/" target="_blank" class="link-btn">
+                        <i class="fas fa-chess"></i> 立即体验
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>五子棋 (Gomoku)</h3>
+                    <p class="project-description">简单而经典的五子棋游戏，展示了棋盘状态管理和胜利判断逻辑。</p>
+                    <a href="https://ycmister.github.io/Gomoku/" target="_blank" class="link-btn">
+                        <i class="fas fa-chess-board"></i> 立即体验
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2>🔗 联系与代码</h2>
+            <ul class="social-links">
+                <li><a href="mailto:myc63960@qq.com"><i class="fas fa-envelope"></i> 邮箱</a></li>
+                <li><a href="https://github.com/ycmister" target="_blank"><i class="fab fa-github"></i> GitHub (代码库)</a></li>
+                <li><a href="#"><i class="fas fa-laptop-code"></i> 技能栈：JS / Canvas / DOM</a></li>
+            </ul>
+        </section>
+    </header>
+
+    <footer>
+        <p>&copy; 2025 Ycmister. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
